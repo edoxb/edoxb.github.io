@@ -23,7 +23,7 @@ const Header: React.FC<HeaderProps> = ({ setActiveSection, activeSection }) => {
           {/* Logo con foto */}
           <div className="flex-shrink-0 mr-8">
      <img
-       src="/public/LOGO-CLUB019.png"
+       src="/LOGO-CLUB019.png"
        alt="Logo Club019"
        className="w-16 h-16 object-contain rounded-full shadow-lg bg-white"
      />
