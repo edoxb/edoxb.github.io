@@ -49,11 +49,11 @@ function App() {
 
         {/* Contenuto Hero */}
         <div className="relative z-10 flex items-start justify-start h-full">
-          <div className="pl-60 pt-60 text-left">
-            <h1 className="text-9xl font-extrabold text-white mb-4 tracking-widest font-mono drop-shadow-2xl select-none">
+          <div className="pl-0 pt-32 text-center md:pl-60 md:pt-60 md:text-left">
+            <h1 className="text-5xl md:text-9xl font-extrabold text-white mb-4 tracking-widest font-mono drop-shadow-2xl select-none">
               CLUB019
             </h1>
-            <p className="text-2xl text-white font-semibold drop-shadow-lg ml-4">
+            <p className="text-lg md:text-2xl text-white font-semibold drop-shadow-lg ml-0 md:ml-4">
               Gianluca gay a capo di Hamas
             </p>
           </div>

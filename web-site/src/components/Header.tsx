@@ -21,13 +21,19 @@ const Header: React.FC<HeaderProps> = ({ setActiveSection, activeSection }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-24">
           {/* Logo con foto */}
-          <div className="flex-shrink-0 mr-8">
-     <img
-       src="/LOGO-CLUB019.png"
-       alt="Logo Club019"
-       className="w-16 h-16 object-contain rounded-full shadow-lg bg-white"
-     />
-   </div>
+          <div className="flex-shrink-0 mr-8 flex flex-col items-start justify-center md:block">
+            <div className="flex items-center">
+              <img
+                src="/LOGO-CLUB019.png"
+                alt="Logo Club019"
+                className="w-16 h-16 object-contain rounded-full shadow-lg bg-white"
+              />
+              {/* Titolo CLUB019 solo su mobile/tablet */}
+              <span className="ml-4 text-3xl font-extrabold text-white drop-shadow-lg md:hidden block select-none">CLUB019</span>
+            </div>
+            {/* Sottotitolo solo su mobile/tablet */}
+            <span className="ml-4 text-base font-semibold text-white drop-shadow-lg md:hidden block select-none">Brazilian Jiu Jitsu</span>
+          </div>
 
 
 
