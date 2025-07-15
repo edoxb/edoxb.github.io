@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Header from './components/Header'
 
 function App() {
   const [activeSection, setActiveSection] = useState<'about' | 'bjj' | null>(null)
   const [selectedLocation, setSelectedLocation] = useState<'varazze' | 'vado'>('varazze')
   const [aboutCarouselIndex, setAboutCarouselIndex] = useState(0)
-  const [aboutCarouselImages, setAboutCarouselImages] = useState([
+  const [aboutCarouselImages] = useState([
     'https://via.placeholder.com/300x300?text=Instagram+1',
     'https://via.placeholder.com/300x300?text=Instagram+2',
     'https://via.placeholder.com/300x300?text=Instagram+3',
