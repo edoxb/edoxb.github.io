@@ -54,7 +54,7 @@ function App() {
               CLUB019
             </h1>
             <p className="text-lg md:text-2xl text-white font-semibold drop-shadow-lg ml-0 md:ml-4">
-              Gianluca gay a capo di Hamas
+              Club sado/gay del savonese
             </p>
           </div>
         </div>
