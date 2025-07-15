@@ -4,6 +4,7 @@ import Header from './components/Header'
 function App() {
   const [activeSection, setActiveSection] = useState<'about' | 'bjj' | null>(null)
   const [selectedLocation, setSelectedLocation] = useState<'varazze' | 'vado'>('varazze')
+  const [selectedContactsLocation, setSelectedContactsLocation] = useState<'varazze' | 'vado'>('varazze')
   const [aboutCarouselIndex, setAboutCarouselIndex] = useState(0)
   const [aboutCarouselImages] = useState([
     '/images/about/img_10_1748934970444-1024x1024.jpg',
@@ -53,7 +54,7 @@ function App() {
               CLUB019
             </h1>
             <p className="text-2xl text-white font-semibold drop-shadow-lg ml-4">
-              Gianluca gay a capo di hamas
+              Gianluca gay a capo di Hamas
             </p>
           </div>
         </div>
@@ -205,10 +206,93 @@ function App() {
           </section>
         )}
 
+        {/* Sezione Contatti - Istruttori */}
+        <section id="contacts" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex items-center justify-center mb-12">
+              <h2 className="text-4xl font-bold text-gray-900 text-center mr-4">Istruttori</h2>
+              <span className="text-4xl font-semibold text-[#e10412]">
+                {selectedContactsLocation === 'varazze' ? 'Crossfit Varazze' : "Master's Club"}
+              </span>
+            </div>
+            {/* Switch sedi Varazze/Vado Ligure */}
+            <div className="flex justify-center mb-12">
+              <div className="flex gap-4 bg-gray-100 rounded-xl p-2">
+                <button
+                  onClick={() => setSelectedContactsLocation('varazze')}
+                  className={`px-8 py-3 rounded-lg font-bold text-lg transition-all duration-200 ${selectedContactsLocation === 'varazze' ? 'bg-[#e10412] text-white shadow-lg' : 'bg-transparent text-gray-700 hover:text-[#e10412]'}`}
+                >
+                  Varazze
+                </button>
+                <button
+                  onClick={() => setSelectedContactsLocation('vado')}
+                  className={`px-8 py-3 rounded-lg font-bold text-lg transition-all duration-200 ${selectedContactsLocation === 'vado' ? 'bg-[#e10412] text-white shadow-lg' : 'bg-transparent text-gray-700 hover:text-[#e10412]'}`}
+                >
+                  Vado Ligure
+                </button>
+              </div>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {selectedContactsLocation === 'varazze' ? (
+                <>
+                  {/* Card Istruttore Varazze 1 */}
+                  <div className="bg-white rounded-2xl shadow-xl p-8 flex flex-col items-center">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Istruttore 1" className="w-32 h-32 object-cover rounded-full mb-6 shadow-lg" />
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Giovanni Tropiano</h3>
+                    <p className="text-gray-700 mb-2">Tel: <a href="tel:+393406648169" className="text-[#e10412] font-semibold">+39 3406648169</a></p>
+                    <p className="text-gray-700 mb-2">Email: <a href="mailto:istruttore@email.com" className="text-[#e10412] font-semibold">istruttore@email.com</a></p>
+                    <p className="text-gray-700">Instagram: <a href="https://instagram.com/istruttore" target="_blank" rel="noopener noreferrer" className="text-[#e10412] font-semibold">@istruttore</a></p>
+                  </div>
+                  {/* Card Istruttore Varazze 2 */}
+                  <div className="bg-white rounded-2xl shadow-xl p-8 flex flex-col items-center">
+                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Istruttore 2" className="w-32 h-32 object-cover rounded-full mb-6 shadow-lg" />
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Alessandro Bottaro</h3>
+                    <p className="text-gray-700 mb-2">Tel: <a href="tel:+393474203602" className="text-[#e10412] font-semibold">+39 3474203602</a></p>
+                    <p className="text-gray-700 mb-2">Email: <a href="mailto:altro@email.com" className="text-[#e10412] font-semibold">altro@email.com</a></p>
+                    <p className="text-gray-700">Instagram: <a href="https://instagram.com/altroistruttore" target="_blank" rel="noopener noreferrer" className="text-[#e10412] font-semibold">@altroistruttore</a></p>
+                  </div>
+                </>
+              ) : (
+                <>
+                  {/* Card Istruttore Vado 1 */}
+                  <div className="bg-white rounded-2xl shadow-xl p-8 flex flex-col items-center">
+                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Istruttore 3" className="w-32 h-32 object-cover rounded-full mb-6 shadow-lg" />
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Felipao L'Imperador</h3>
+                    <p className="text-gray-700 mb-2">Tel: <a href="tel:+393935122835" className="text-[#e10412] font-semibold">+39 3935122835</a></p>
+                    <p className="text-gray-700 mb-2">Email: <a href="mailto:terzo@email.com" className="text-[#e10412] font-semibold">terzo@email.com</a></p>
+                    <p className="text-gray-700">Instagram: <a href="https://instagram.com/terzoistruttore" target="_blank" rel="noopener noreferrer" className="text-[#e10412] font-semibold">@terzoistruttore</a></p>
+                  </div>
+                  {/* Card Istruttore Vado 2 */}
+                  <div className="bg-white rounded-2xl shadow-xl p-8 flex flex-col items-center">
+                    <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS72vijahZ4IrJIcI3WWmdQUAI_gCbTRXKrUcgRPzbpihavwtFPnStymGGWYXDf4plIxAXZo8R4pb4kN6CDBD9nvw" alt="Gianluca Carlino - cane carlino" className="w-32 h-32 object-cover rounded-full mb-6 shadow-lg" />
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Gianluca Carlino</h3>
+                    <p className="text-gray-700 mb-2">Tel: <a href="tel:+393661406468" className="text-[#e10412] font-semibold">+39 3661406468</a></p>
+                    <p className="text-gray-700 mb-2">Email: <a href="mailto:quarto@email.com" className="text-[#e10412] font-semibold">quarto@email.com</a></p>
+                    <p className="text-gray-700">Instagram: <a href="https://instagram.com/quartoistruttore" target="_blank" rel="noopener noreferrer" className="text-[#e10412] font-semibold">@quartoistruttore</a></p>
+                  </div>
+                  {/* Card Istruttore Vado 3 */}
+                  <div className="bg-white rounded-2xl shadow-xl p-8 flex flex-col items-center">
+                    <img src="https://randomuser.me/api/portraits/men/77.jpg" alt="Istruttore 4" className="w-32 h-32 object-cover rounded-full mb-6 shadow-lg" />
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Alessandro Bottaro</h3>
+                    <p className="text-gray-700 mb-2">Tel: <a href="tel:+393474203602" className="text-[#e10412] font-semibold">+39 3474203602</a></p>
+                    <p className="text-gray-700 mb-2">Email: <a href="mailto:quarto@email.com" className="text-[#e10412] font-semibold">quarto@email.com</a></p>
+                    <p className="text-gray-700">Instagram: <a href="https://instagram.com/quartoistruttore" target="_blank" rel="noopener noreferrer" className="text-[#e10412] font-semibold">@quartoistruttore</a></p>
+                  </div>
+                </>
+              )}
+            </div>
+          </div>
+        </section>
+
         {/* Sezione Schedule */}
         <section id="schedule" className="py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center">Orari delle Lezioni</h2>
+            <div className="flex items-center justify-center mb-8">
+              <h2 className="text-4xl font-bold text-gray-900 text-center mr-4">Orari delle Lezioni</h2>
+              <span className="text-4xl font-semibold text-[#e10412]">
+                {selectedLocation === 'varazze' ? 'Crossfit Varazze' : "Master's Club"}
+              </span>
+            </div>
             
             {/* Selezione Sede */}
             <div className="flex justify-center mb-12">
