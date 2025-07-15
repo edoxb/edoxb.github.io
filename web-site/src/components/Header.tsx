@@ -1,6 +1,11 @@
 import React, { useState } from 'react'
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  setActiveSection: (section: 'about' | 'bjj' | null) => void;
+  activeSection: 'about' | 'bjj' | null;
+}
+
+const Header: React.FC<HeaderProps> = ({ setActiveSection, activeSection }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const menuItems = [
@@ -16,26 +21,54 @@ const Header: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-24">
           {/* Logo con foto */}
-          <div className="flex-shrink-0">
-            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#e10412] to-[#c00410] flex items-center justify-center shadow-lg">
-              <span className="text-white text-2xl font-bold">🥋</span>
-            </div>
-          </div>
+          <div className="flex-shrink-0 mr-8">
+     <img
+       src="/public/LOGO-CLUB019.png"
+       alt="Logo Club019"
+       className="w-16 h-16 object-contain rounded-full shadow-lg bg-white"
+     />
+   </div>
 
 
 
           {/* Desktop Navigation - spostato più a sinistra */}
           <nav className="hidden md:flex space-x-12 -ml-20">
-            {menuItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-white hover:text-[#e10412] px-5 py-3 rounded-md text-xl font-bold transition-colors duration-200 relative group drop-shadow-lg"
-              >
-                {item.name}
-                <span className="absolute bottom-0 left-0 w-0 h-1 bg-[#e10412] transition-all duration-200 group-hover:w-full"></span>
-              </a>
-            ))}
+            {menuItems.map((item) => {
+              if (item.name === 'About Us' || item.name === 'Brazilian Jiu Jitsu') {
+                const section = item.name === 'About Us' ? 'about' : 'bjj';
+                return (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    onClick={e => {
+                      e.preventDefault();
+                      if (activeSection !== section) {
+                        setActiveSection(section);
+                        setTimeout(() => {
+                          document.getElementById(section)?.scrollIntoView({ behavior: 'smooth' });
+                        }, 100);
+                      } else {
+                        document.getElementById(section)?.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
+                    className="text-white hover:text-[#e10412] px-5 py-3 rounded-md text-xl font-bold transition-colors duration-200 relative group drop-shadow-lg"
+                  >
+                    {item.name}
+                    <span className="absolute bottom-0 left-0 w-0 h-1 bg-[#e10412] transition-all duration-200 group-hover:w-full"></span>
+                  </a>
+                );
+              }
+              return (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-white hover:text-[#e10412] px-5 py-3 rounded-md text-xl font-bold transition-colors duration-200 relative group drop-shadow-lg"
+                >
+                  {item.name}
+                  <span className="absolute bottom-0 left-0 w-0 h-1 bg-[#e10412] transition-all duration-200 group-hover:w-full"></span>
+                </a>
+              );
+            })}
           </nav>
 
 

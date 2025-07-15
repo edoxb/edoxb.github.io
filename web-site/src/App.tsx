@@ -1,17 +1,28 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Header from './components/Header'
 
 function App() {
   const [activeSection, setActiveSection] = useState<'about' | 'bjj' | null>(null)
   const [selectedLocation, setSelectedLocation] = useState<'varazze' | 'vado'>('varazze')
+  const [selectedContactsLocation, setSelectedContactsLocation] = useState<'varazze' | 'vado'>('varazze')
   const [aboutCarouselIndex, setAboutCarouselIndex] = useState(0)
   const [aboutCarouselImages] = useState([
-    'https://via.placeholder.com/300x300?text=Instagram+1',
-    'https://via.placeholder.com/300x300?text=Instagram+2',
-    'https://via.placeholder.com/300x300?text=Instagram+3',
-    'https://via.placeholder.com/300x300?text=Instagram+4',
-    'https://via.placeholder.com/300x300?text=Instagram+5',
+    '/images/about/img_10_1748934970444-1024x1024.jpg',
+    '/images/about/img_2_1748934863752-1024x1024.jpg',
+    '/images/about/IMG-20250630-WA0019-1-1012x1024.jpg',
+    '/images/about/IMG-20250630-WA0017-1-1024x557.jpg',
+    '/images/about/IMG-20250701-WA0001-1-1024x661.jpg',
+    '/images/about/IMG-20250630-WA0020-1024x661.jpg',
   ])
+
+  // Rotazione automatica del carousel
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setAboutCarouselIndex((prevIndex) => (prevIndex + 1) % aboutCarouselImages.length)
+    }, 6000) // Cambia immagine ogni 3 secondi
+
+    return () => clearInterval(interval)
+  }, [aboutCarouselImages.length])
 
   return (
     <div className="relative">
@@ -33,7 +44,7 @@ function App() {
 
         {/* Header nella hero section */}
         <div className="relative z-10">
-          <Header />
+          <Header setActiveSection={setActiveSection} activeSection={activeSection} />
         </div>
 
         {/* Contenuto Hero */}
@@ -43,7 +54,7 @@ function App() {
               CLUB019
             </h1>
             <p className="text-2xl text-white font-semibold drop-shadow-lg ml-4">
-              Gianluca gay a capo di hamas
+              Gianluca gay a capo di Hamas
             </p>
           </div>
         </div>
@@ -99,16 +110,16 @@ function App() {
 
         {/* Sezione About Us - visibile solo se cliccata */}
         {activeSection === 'about' && (
-          <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#2d2d2d]">
+          <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-[#2d2d2d] relative">
             <div className="max-w-7xl mx-auto">
-              <div className="flex justify-between items-center mb-8">
+              <button 
+                onClick={() => setActiveSection(null)}
+                className="absolute top-4 right-4 text-[#e10412] hover:text-[#c00410] font-bold text-2xl transition-colors z-10"
+              >
+                ✕
+              </button>
+              <div className="mb-8">
                 <h2 className="text-4xl font-bold text-white">Chi Siamo</h2>
-                <button 
-                  onClick={() => setActiveSection(null)}
-                  className="text-[#e10412] hover:text-[#c00410] font-bold text-lg transition-colors"
-                >
-                  ✕ Chiudi
-                </button>
               </div>
               <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div>
@@ -119,15 +130,14 @@ function App() {
                     Unisciti a noi per scoprire il tuo potenziale e vivere un'esperienza unica che trasformerà il tuo corpo e la tua mente.
                   </p>
                 </div>
-                {/* Carousel Instagram */}
-                <div className="bg-gray-800 rounded-lg p-4 shadow-lg flex flex-col items-center">
-                  <h3 className="text-2xl font-bold text-white mb-4">Dalla nostra Instagram</h3>
-                  <div className="w-full max-w-md relative">
-                    <div className="overflow-hidden rounded-lg">
-                      {/* Semplice carousel manuale, puoi sostituire le immagini con quelle reali */}
-                      <div className="flex transition-transform duration-500" style={{transform: `translateX(-${aboutCarouselIndex * 100}%)`}}>
+                {/* Carousel Immagini */}
+                <div className="bg-gray-800 rounded-lg shadow-lg h-full">
+                  <div className="w-full h-full relative">
+                    <div className="overflow-hidden rounded-lg h-full">
+                      {/* Carousel automatico */}
+                      <div className="flex transition-transform duration-500 h-full" style={{transform: `translateX(-${aboutCarouselIndex * 100}%)`}}>
                         {aboutCarouselImages.map((img, idx) => (
-                          <img key={idx} src={img} alt={`Instagram ${idx+1}`} className="w-full h-64 object-cover flex-shrink-0" />
+                          <img key={idx} src={img} alt={`Club019 - Foto ${idx+1}`} className="w-full h-full object-cover flex-shrink-0" />
                         ))}
                       </div>
                     </div>
@@ -136,7 +146,7 @@ function App() {
                     <button onClick={() => setAboutCarouselIndex((aboutCarouselIndex + 1) % aboutCarouselImages.length)} className="absolute right-0 top-1/2 -translate-y-1/2 bg-black bg-opacity-40 text-white px-3 py-1 rounded-full hover:bg-opacity-70 transition-all">&#8594;</button>
                   </div>
                   {/* Dots */}
-                  <div className="flex gap-2 mt-4">
+                  <div className="flex gap-2 justify-center absolute bottom-4 left-1/2 -translate-x-1/2">
                     {aboutCarouselImages.map((_, idx) => (
                       <button key={idx} onClick={() => setAboutCarouselIndex(idx)} className={`w-3 h-3 rounded-full ${aboutCarouselIndex === idx ? 'bg-[#e10412]' : 'bg-gray-500'}`}></button>
                     ))}
@@ -149,16 +159,16 @@ function App() {
 
         {/* Sezione Brazilian Jiu Jitsu - visibile solo se cliccata */}
         {activeSection === 'bjj' && (
-          <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#2d2d2d]">
+          <section id="bjj" className="py-20 px-4 sm:px-6 lg:px-8 bg-[#2d2d2d] relative">
             <div className="max-w-7xl mx-auto">
-              <div className="flex justify-between items-center mb-8">
+              <button 
+                onClick={() => setActiveSection(null)}
+                className="absolute top-4 right-4 text-[#e10412] hover:text-[#c00410] font-bold text-2xl transition-colors z-10"
+              >
+                ✕
+              </button>
+              <div className="mb-8">
                 <h2 className="text-4xl font-bold text-white">Brazilian Jiu Jitsu</h2>
-                <button 
-                  onClick={() => setActiveSection(null)}
-                  className="text-[#e10412] hover:text-[#c00410] font-bold text-lg transition-colors"
-                >
-                  ✕ Chiudi
-                </button>
               </div>
               <div className="grid md:grid-cols-3 gap-8">
                 <div className="bg-gray-800 rounded-lg shadow-lg p-6">
@@ -196,10 +206,93 @@ function App() {
           </section>
         )}
 
+        {/* Sezione Contatti - Istruttori */}
+        <section id="contacts" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex items-center justify-center mb-12">
+              <h2 className="text-4xl font-bold text-gray-900 text-center mr-4">Istruttori</h2>
+              <span className="text-4xl font-semibold text-[#e10412]">
+                {selectedContactsLocation === 'varazze' ? 'Crossfit Varazze' : "Master's Club"}
+              </span>
+            </div>
+            {/* Switch sedi Varazze/Vado Ligure */}
+            <div className="flex justify-center mb-12">
+              <div className="flex gap-4 bg-gray-100 rounded-xl p-2">
+                <button
+                  onClick={() => setSelectedContactsLocation('varazze')}
+                  className={`px-8 py-3 rounded-lg font-bold text-lg transition-all duration-200 ${selectedContactsLocation === 'varazze' ? 'bg-[#e10412] text-white shadow-lg' : 'bg-transparent text-gray-700 hover:text-[#e10412]'}`}
+                >
+                  Varazze
+                </button>
+                <button
+                  onClick={() => setSelectedContactsLocation('vado')}
+                  className={`px-8 py-3 rounded-lg font-bold text-lg transition-all duration-200 ${selectedContactsLocation === 'vado' ? 'bg-[#e10412] text-white shadow-lg' : 'bg-transparent text-gray-700 hover:text-[#e10412]'}`}
+                >
+                  Vado Ligure
+                </button>
+              </div>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {selectedContactsLocation === 'varazze' ? (
+                <>
+                  {/* Card Istruttore Varazze 1 */}
+                  <div className="bg-white rounded-2xl shadow-xl p-8 flex flex-col items-center">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Istruttore 1" className="w-32 h-32 object-cover rounded-full mb-6 shadow-lg" />
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Giovanni Tropiano</h3>
+                    <p className="text-gray-700 mb-2">Tel: <a href="tel:+393406648169" className="text-[#e10412] font-semibold">+39 3406648169</a></p>
+                    <p className="text-gray-700 mb-2">Email: <a href="mailto:istruttore@email.com" className="text-[#e10412] font-semibold">istruttore@email.com</a></p>
+                    <p className="text-gray-700">Instagram: <a href="https://instagram.com/istruttore" target="_blank" rel="noopener noreferrer" className="text-[#e10412] font-semibold">@istruttore</a></p>
+                  </div>
+                  {/* Card Istruttore Varazze 2 */}
+                  <div className="bg-white rounded-2xl shadow-xl p-8 flex flex-col items-center">
+                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Istruttore 2" className="w-32 h-32 object-cover rounded-full mb-6 shadow-lg" />
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Alessandro Bottaro</h3>
+                    <p className="text-gray-700 mb-2">Tel: <a href="tel:+393474203602" className="text-[#e10412] font-semibold">+39 3474203602</a></p>
+                    <p className="text-gray-700 mb-2">Email: <a href="mailto:altro@email.com" className="text-[#e10412] font-semibold">altro@email.com</a></p>
+                    <p className="text-gray-700">Instagram: <a href="https://instagram.com/altroistruttore" target="_blank" rel="noopener noreferrer" className="text-[#e10412] font-semibold">@altroistruttore</a></p>
+                  </div>
+                </>
+              ) : (
+                <>
+                  {/* Card Istruttore Vado 1 */}
+                  <div className="bg-white rounded-2xl shadow-xl p-8 flex flex-col items-center">
+                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Istruttore 3" className="w-32 h-32 object-cover rounded-full mb-6 shadow-lg" />
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Felipao L'Imperador</h3>
+                    <p className="text-gray-700 mb-2">Tel: <a href="tel:+393935122835" className="text-[#e10412] font-semibold">+39 3935122835</a></p>
+                    <p className="text-gray-700 mb-2">Email: <a href="mailto:terzo@email.com" className="text-[#e10412] font-semibold">terzo@email.com</a></p>
+                    <p className="text-gray-700">Instagram: <a href="https://instagram.com/terzoistruttore" target="_blank" rel="noopener noreferrer" className="text-[#e10412] font-semibold">@terzoistruttore</a></p>
+                  </div>
+                  {/* Card Istruttore Vado 2 */}
+                  <div className="bg-white rounded-2xl shadow-xl p-8 flex flex-col items-center">
+                    <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS72vijahZ4IrJIcI3WWmdQUAI_gCbTRXKrUcgRPzbpihavwtFPnStymGGWYXDf4plIxAXZo8R4pb4kN6CDBD9nvw" alt="Gianluca Carlino - cane carlino" className="w-32 h-32 object-cover rounded-full mb-6 shadow-lg" />
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Gianluca Carlino</h3>
+                    <p className="text-gray-700 mb-2">Tel: <a href="tel:+393661406468" className="text-[#e10412] font-semibold">+39 3661406468</a></p>
+                    <p className="text-gray-700 mb-2">Email: <a href="mailto:quarto@email.com" className="text-[#e10412] font-semibold">quarto@email.com</a></p>
+                    <p className="text-gray-700">Instagram: <a href="https://instagram.com/quartoistruttore" target="_blank" rel="noopener noreferrer" className="text-[#e10412] font-semibold">@quartoistruttore</a></p>
+                  </div>
+                  {/* Card Istruttore Vado 3 */}
+                  <div className="bg-white rounded-2xl shadow-xl p-8 flex flex-col items-center">
+                    <img src="https://randomuser.me/api/portraits/men/77.jpg" alt="Istruttore 4" className="w-32 h-32 object-cover rounded-full mb-6 shadow-lg" />
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Alessandro Bottaro</h3>
+                    <p className="text-gray-700 mb-2">Tel: <a href="tel:+393474203602" className="text-[#e10412] font-semibold">+39 3474203602</a></p>
+                    <p className="text-gray-700 mb-2">Email: <a href="mailto:quarto@email.com" className="text-[#e10412] font-semibold">quarto@email.com</a></p>
+                    <p className="text-gray-700">Instagram: <a href="https://instagram.com/quartoistruttore" target="_blank" rel="noopener noreferrer" className="text-[#e10412] font-semibold">@quartoistruttore</a></p>
+                  </div>
+                </>
+              )}
+            </div>
+          </div>
+        </section>
+
         {/* Sezione Schedule */}
         <section id="schedule" className="py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center">Orari delle Lezioni</h2>
+            <div className="flex items-center justify-center mb-8">
+              <h2 className="text-4xl font-bold text-gray-900 text-center mr-4">Orari delle Lezioni</h2>
+              <span className="text-4xl font-semibold text-[#e10412]">
+                {selectedLocation === 'varazze' ? 'Crossfit Varazze' : "Master's Club"}
+              </span>
+            </div>
             
             {/* Selezione Sede */}
             <div className="flex justify-center mb-12">
@@ -320,8 +413,7 @@ function App() {
                 <div className="bg-gray-100 rounded-lg overflow-hidden shadow-lg">
                   {selectedLocation === 'varazze' ? (
                     <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2858.1234567890123!2d8.5678!3d44.1234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDTCsDA3JzM0LjQiTiA4wrAzNCcwNC4wIkU!5e0!3m2!1sit!2sit!4v1234567890123"
-                      width="100%"
+                      src="https://www.google.com/maps?q=44.363799547036116,8.579898869303666&z=15&output=embed"                      width="100%"
                       height="300"
                       style={{ border: 0 }}
                       allowFullScreen
@@ -331,8 +423,7 @@ function App() {
                     ></iframe>
                   ) : (
                     <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2858.1234567890123!2d8.4321!3d44.5678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDTCsDM0JzA0LjQiTiA4wrAyNicwNC4wIkU!5e0!3m2!1sit!2sit!4v1234567890123"
-                      width="100%"
+                      src="https://www.google.com/maps?q=44.26722629791207,8.436612790521936&z=15&output=embed"                      width="100%"
                       height="300"
                       style={{ border: 0 }}
                       allowFullScreen
