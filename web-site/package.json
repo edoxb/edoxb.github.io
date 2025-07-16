@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "predeploy": "echo www.club019.com > dist/CNAME",
     "deploy": "gh-pages -d dist",
-    "homepage": "https://edoxb.github.io"
+
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
