@@ -246,7 +246,7 @@ function App() {
                     <h3 className="text-2xl font-bold text-gray-900 mb-2">Giovanni Tropiano</h3>
                     <p className="text-gray-700 mb-2">Tel: <a href="tel:+393406648169" className="text-[#e10412] font-semibold">+39 3406648169</a></p>
                     <p className="text-gray-700 mb-2">Email: <a href="mailto:istruttore@email.com" className="text-[#e10412] font-semibold">istruttore@email.com</a></p>
-                    <p className="text-gray-700">Instagram: <a href="https://instagram.com/istruttore" target="_blank" rel="noopener noreferrer" className="text-[#e10412] font-semibold">@istruttore</a></p>
+                    <p className="text-gray-700">Instagram: <a href="https://www.instagram.com/gio.tropiano?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="text-[#e10412] font-semibold">@gio.tropiano</a></p>
 
                   </div>
                   {/* Card Istruttore Varazze 2 */}
@@ -255,7 +255,7 @@ function App() {
                     <h3 className="text-2xl font-bold text-gray-900 mb-2">Alessandro Bottaro</h3>
                     <p className="text-gray-700 mb-2">Tel: <a href="tel:+393474203602" className="text-[#e10412] font-semibold">+39 3474203602</a></p>
                     <p className="text-gray-700 mb-2">Email: <a href="mailto:altro@email.com" className="text-[#e10412] font-semibold">altro@email.com</a></p>
-                    <p className="text-gray-700">Instagram: <a href="https://instagram.com/altroistruttore" target="_blank" rel="noopener noreferrer" className="text-[#e10412] font-semibold">@altroistruttore</a></p>
+                    <p className="text-gray-700">Instagram: <a href="https://www.instagram.com/a.bottaro?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="text-[#e10412] font-semibold">@a.bottaro</a></p>
       
                     {/* Espansione: mostra info aggiuntive e loghi se expandedBottaro */}
                     <div
@@ -280,7 +280,7 @@ function App() {
                     <h3 className="text-2xl font-bold text-gray-900 mb-2">Felipe Corsini Soares</h3>
                     <p className="text-gray-700 mb-2">Tel: <a href="tel:+393935122835" className="text-[#e10412] font-semibold">+39 3935122835</a></p>
                     <p className="text-gray-700 mb-2">Email: <a href="mailto:terzo@email.com" className="text-[#e10412] font-semibold">terzo@email.com</a></p>
-                    <p className="text-gray-700">Instagram: <a href="https://instagram.com/terzoistruttore" target="_blank" rel="noopener noreferrer" className="text-[#e10412] font-semibold">@terzoistruttore</a></p>
+                    <p className="text-gray-700">Instagram: <a href="https://www.instagram.com/felipecorsinisoares?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="text-[#e10412] font-semibold">@felipecorsinisoares</a></p>
  
                   </div>
     
@@ -291,7 +291,7 @@ function App() {
                     <h3 className="text-2xl font-bold text-gray-900 mb-2">Alessandro Bottaro</h3>
                     <p className="text-gray-700 mb-2">Tel: <a href="tel:+393474203602" className="text-[#e10412] font-semibold">+39 3474203602</a></p>
                     <p className="text-gray-700 mb-2">Email: <a href="mailto:altro@email.com" className="text-[#e10412] font-semibold">altro@email.com</a></p>
-                    <p className="text-gray-700">Instagram: <a href="https://instagram.com/altroistruttore" target="_blank" rel="noopener noreferrer" className="text-[#e10412] font-semibold">@altroistruttore</a></p>
+                    <p className="text-gray-700">Instagram: <a href="https://www.instagram.com/a.bottaro?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="text-[#e10412] font-semibold">@a.bottaro</a></p>
                     {/* Espansione: mostra info aggiuntive e loghi se expandedBottaro */}
                     <div
                       className={`overflow-hidden transition-all duration-500 ${expandedBottaro ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'}`}
@@ -311,8 +311,8 @@ function App() {
                    <img src="/images/collaboratori/gianluca.jpg" alt="Gianluca Carlino" className="w-32 h-32 object-cover rounded-full mb-6 shadow-lg" />
                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Gianluca Carlino</h3>
                     <p className="text-gray-700 mb-2">Tel: <a href="tel:+393661406468" className="text-[#e10412] font-semibold">+39 3661406468</a></p>
-                    <p className="text-gray-700 mb-2">Email: <a href="mailto:quarto@email.com" className="text-[#e10412] font-semibold">gianlucarlins92@gmail.com</a></p>
-                    <p className="text-gray-700">Instagram: <a href="https://instagram.com/quartoistruttore" target="_blank" rel="noopener noreferrer" className="text-[#e10412] font-semibold">@quartoistruttore</a></p>
+                    <p className="text-gray-700 mb-2">Email: <a href="mailto:gianlucarlins92@gmail.com" className="text-[#e10412] font-semibold">gianlucarlins92@gmail.com</a></p>
+                    <p className="text-gray-700">Instagram: <a href="https://www.instagram.com/soloavapxiabjj?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="text-[#e10412] font-semibold">@soloavapxiabjj</a></p>
                     {/* Espansione: mostra info aggiuntive e loghi se expandedBottaro */}
                     <div
                       className={`overflow-hidden transition-all duration-500 ${expandedGianluca ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'}`}
