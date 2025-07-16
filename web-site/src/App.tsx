@@ -59,7 +59,7 @@ function App() {
               CLUB019
             </h1>
             <p className="text-lg md:text-2xl text-white font-semibold drop-shadow-lg ml-0 md:ml-4">
-              Club sado/gay del savonese
+              Club BJJ del savonese
             </p>
           </div>
         </div>
