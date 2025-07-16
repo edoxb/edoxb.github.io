@@ -13,6 +13,9 @@ function App() {
     '/images/about/IMG-20250630-WA0017-1-1024x557.jpg',
     '/images/about/IMG-20250701-WA0001-1-1024x661.jpg',
     '/images/about/IMG-20250630-WA0020-1024x661.jpg',
+    '/images/about/Immagine WhatsApp 2025-07-16 ore 12.51.35_262278f9.jpg',
+    '/images/about/Immagine WhatsApp 2025-07-16 ore 12.51.35_6591ba25.jpg',
+    '/images/about/Immagine WhatsApp 2025-07-16 ore 12.51.35_795dcfc7.jpg',
   ])
   // 1. Aggiungi stato per l'espansione della card di Alessandro Bottaro
   const [expandedBottaro, setExpandedBottaro] = useState(false)
