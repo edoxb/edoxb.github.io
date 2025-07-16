@@ -12,8 +12,7 @@ const Header: React.FC<HeaderProps> = ({ setActiveSection, activeSection }) => {
     { name: 'About Us', href: '#about' },
     { name: 'Brazilian Jiu Jitsu', href: '#bjj' },
     { name: 'Schedule', href: '#schedule' },
-    { name: 'Contacts', href: '#contacts' },
-    { name: 'Spots', href: '#spots' }
+    { name: 'Contacts', href: '#contacts' }
   ]
 
   return (
