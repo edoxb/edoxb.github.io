@@ -8,7 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "predeploy": "echo www.club019.com > dist/CNAME",
-    "deploy": "gh-pages -d dist",
+    "deploy": "gh-pages -d dist"
 
   },
   "dependencies": {
