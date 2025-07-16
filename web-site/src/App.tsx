@@ -3,8 +3,8 @@ import Header from './components/Header'
 
 function App() {
   const [activeSection, setActiveSection] = useState<'about' | 'bjj' | null>(null)
-  const [selectedLocation, setSelectedLocation] = useState<'varazze' | 'vado'>('varazze')
-  const [selectedContactsLocation, setSelectedContactsLocation] = useState<'varazze' | 'vado'>('varazze')
+  const [selectedLocation, setSelectedLocation] = useState<'varazze' | 'vado'>('vado')
+  const [selectedContactsLocation, setSelectedContactsLocation] = useState<'varazze' | 'vado'>('vado')
   const [aboutCarouselIndex, setAboutCarouselIndex] = useState(0)
   const [aboutCarouselImages] = useState([
     '/images/about/img_10_1748934970444-1024x1024.jpg',
