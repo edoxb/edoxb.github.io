@@ -247,10 +247,7 @@ function App() {
                     <p className="text-gray-700 mb-2">Tel: <a href="tel:+393406648169" className="text-[#e10412] font-semibold">+39 3406648169</a></p>
                     <p className="text-gray-700 mb-2">Email: <a href="mailto:istruttore@email.com" className="text-[#e10412] font-semibold">istruttore@email.com</a></p>
                     <p className="text-gray-700">Instagram: <a href="https://instagram.com/istruttore" target="_blank" rel="noopener noreferrer" className="text-[#e10412] font-semibold">@istruttore</a></p>
-                    <div className="mt-2 flex items-center gap-2">
-                      <span className="text-gray-700 font-semibold">Cintura blu</span>
-                      <span className="inline-block w-4 h-4 rounded-full" style={{ backgroundColor: '#2563eb' }}></span>
-                    </div>
+
                   </div>
                   {/* Card Istruttore Varazze 2 */}
                   <div className="bg-white rounded-2xl shadow-xl p-8 flex flex-col items-center transition-all duration-500 cursor-pointer" onClick={() => setExpandedBottaro((prev) => !prev)}>
@@ -259,10 +256,7 @@ function App() {
                     <p className="text-gray-700 mb-2">Tel: <a href="tel:+393474203602" className="text-[#e10412] font-semibold">+39 3474203602</a></p>
                     <p className="text-gray-700 mb-2">Email: <a href="mailto:altro@email.com" className="text-[#e10412] font-semibold">altro@email.com</a></p>
                     <p className="text-gray-700">Instagram: <a href="https://instagram.com/altroistruttore" target="_blank" rel="noopener noreferrer" className="text-[#e10412] font-semibold">@altroistruttore</a></p>
-                    <div className="mt-2 flex items-center gap-2">
-                      <span className="text-gray-700 font-semibold">Cintura nera</span>
-                      <span className="inline-block w-4 h-4 rounded-full bg-black"></span>
-                    </div>
+      
                     {/* Espansione: mostra info aggiuntive e loghi se expandedBottaro */}
                     <div
                       className={`overflow-hidden transition-all duration-500 ${expandedBottaro ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'}`}
@@ -287,10 +281,7 @@ function App() {
                     <p className="text-gray-700 mb-2">Tel: <a href="tel:+393935122835" className="text-[#e10412] font-semibold">+39 3935122835</a></p>
                     <p className="text-gray-700 mb-2">Email: <a href="mailto:terzo@email.com" className="text-[#e10412] font-semibold">terzo@email.com</a></p>
                     <p className="text-gray-700">Instagram: <a href="https://instagram.com/terzoistruttore" target="_blank" rel="noopener noreferrer" className="text-[#e10412] font-semibold">@terzoistruttore</a></p>
-                    <div className="mt-2 flex items-center gap-2">
-                      <span className="text-gray-700 font-semibold">Cintura marrone</span>
-                      <span className="inline-block w-4 h-4 rounded-full" style={{ backgroundColor: '#a0522d' }}></span>
-                    </div>
+ 
                   </div>
     
                   {/* Card Istruttore Vado 3 */}
@@ -301,10 +292,6 @@ function App() {
                     <p className="text-gray-700 mb-2">Tel: <a href="tel:+393474203602" className="text-[#e10412] font-semibold">+39 3474203602</a></p>
                     <p className="text-gray-700 mb-2">Email: <a href="mailto:altro@email.com" className="text-[#e10412] font-semibold">altro@email.com</a></p>
                     <p className="text-gray-700">Instagram: <a href="https://instagram.com/altroistruttore" target="_blank" rel="noopener noreferrer" className="text-[#e10412] font-semibold">@altroistruttore</a></p>
-                    <div className="mt-2 flex items-center gap-2">
-                      <span className="text-gray-700 font-semibold">Cintura nera</span>
-                      <span className="inline-block w-4 h-4 rounded-full bg-black"></span>
-                    </div>
                     {/* Espansione: mostra info aggiuntive e loghi se expandedBottaro */}
                     <div
                       className={`overflow-hidden transition-all duration-500 ${expandedBottaro ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'}`}
@@ -326,10 +313,6 @@ function App() {
                     <p className="text-gray-700 mb-2">Tel: <a href="tel:+393661406468" className="text-[#e10412] font-semibold">+39 3661406468</a></p>
                     <p className="text-gray-700 mb-2">Email: <a href="mailto:quarto@email.com" className="text-[#e10412] font-semibold">gianlucarlins92@gmail.com</a></p>
                     <p className="text-gray-700">Instagram: <a href="https://instagram.com/quartoistruttore" target="_blank" rel="noopener noreferrer" className="text-[#e10412] font-semibold">@quartoistruttore</a></p>
-                    <div className="mt-2 flex items-center gap-2">
-                      <span className="text-gray-700 font-semibold">Cintura viola</span>
-                      <span className="inline-block w-4 h-4 rounded-full" style={{ backgroundColor: '#7c3aed' }}></span>
-                    </div>
                     {/* Espansione: mostra info aggiuntive e loghi se expandedBottaro */}
                     <div
                       className={`overflow-hidden transition-all duration-500 ${expandedGianluca ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'}`}
